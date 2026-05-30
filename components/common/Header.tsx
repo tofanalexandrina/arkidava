@@ -9,7 +9,7 @@ const navItems = [
 
 export default function Header() {
   return (
-    <div className="fixed top-0 left-0 w-full flex items-center justify-between px-6 z-50 bg-transparent backdrop-blur-md">
+    <div className="fixed top-0 left-0 w-full flex items-center justify-between px-6 z-50 bg-transparent backdrop-blur-xs">
       <div>
         <Link href="/">
           <Image
