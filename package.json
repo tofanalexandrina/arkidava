@@ -2,11 +2,14 @@
   "name": "arkidava-webapp",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "seed": "tsx scripts/seed.ts",
+    "dev": "npm run seed && next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:types": "node --experimental-strip-types --no-require-module -e \"import('./payload.config.ts').then(async (cfg) => { const c = await (cfg.default?.default ? cfg.default.default : (cfg.default || cfg)); import('payload/node').then(m => m.generateTypes(c)) })\""
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.85.0",
@@ -23,9 +26,12 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^10.1.0",
+    "dotenv": "^16.3.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4",
+    "tsx": "^4",
     "typescript": "^5"
   }
 }
