@@ -22,9 +22,9 @@ export default function Header() {
         </Link>
       </div>
 
-      <div className="flex items-center text-sm gap-8 text-black">
+      <div className="flex items-center text-sm gap-8 text-black/50">
         {navItems.map((item) => (
-          <Link key={item.href} href={item.href} className=" hover:underline">
+          <Link key={item.href} href={item.href} className="hover:text-black  transition-colors duration-200">
             {item.label}
           </Link>
         ))}
