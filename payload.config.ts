@@ -8,8 +8,7 @@ import sharp from "sharp";
 import { Users } from "./collections/Users.ts";
 import { Media } from "./collections/Media.ts";
 import { Projects } from "./collections/Projects.ts";
-import { Categories } from "./collections/Categories";
-
+import { Categories } from "./collections/Categories.ts";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
