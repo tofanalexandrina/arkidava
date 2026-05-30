@@ -44,3 +44,35 @@ npx payload generate:types
 ```
 
 This command introspects your Payload configuration and emits strongly-typed definitions you can import across your frontend and backend code, improving developer experience and reducing runtime errors.
+
+header css base ideas:
+// components/common/Header.tsx
+import Link from 'next/link'
+
+export default function Header() {
+return (
+// 1. "fixed": floats it on top of everything and stays while scrolling
+// 2. "top-0 left-0 w-full": anchors it to the very top edges
+// 3. "z-50": ensures it stacks on top of your background images
+// 4. "bg-transparent" or "bg-black/10": keeps it clear
+// 5. "backdrop-blur-md": gives it that modern, premium glassy look over photos
+
+<header className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm border-b border-white/10 text-white">
+<div className="container mx-auto px-6 h-20 flex items-center justify-between">
+<Link href="/" className="font-bold text-xl tracking-wider">
+ARKIDAVA
+</Link>
+
+        <nav className="flex gap-8">
+          <Link href="#projects" className="hover:text-gray-300 transition">Projects</Link>
+          <Link href="#designs" className="hover:text-gray-300 transition">Designs</Link>
+          <Link href="#about" className="hover:text-gray-300 transition">About</Link>
+        </nav>
+      </div>
+    </header>
+
+)
+}
+
+link to payload admin page:
+http://localhost:3000/admin
