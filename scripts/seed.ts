@@ -67,6 +67,43 @@ const seed = async () => {
       }
     }
 
+    const categoriesToCreate = [
+      {
+        name: "Bucatarie",
+        slug: "kitchen",
+      },
+      {
+        name: "Dormitor",
+        slug: "bedroom",
+      },
+      {
+        name: "Baie",
+        slug: "bathroom",
+      },
+    ];
+
+    for (const category of categoriesToCreate) {
+      const existingCategory = await payload.find({
+        collection: "categories",
+        where: {
+          slug: {
+            equals: category.slug,
+          },
+        },
+        limit: 1,
+      });
+
+      if (existingCategory.docs.length === 0) {
+        await payload.create({
+          collection: "categories",
+          data: category,
+        });
+        console.log(`✓ Created category: ${category.name}`);
+      } else {
+        console.log(`• Category already exists: ${category.name}`);
+      }
+    }
+
     console.log("✓ Seeding completed successfully!");
   } catch (error) {
     console.error("❌ Seeding failed:", error);
