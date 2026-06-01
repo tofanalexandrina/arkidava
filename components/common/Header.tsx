@@ -35,7 +35,7 @@ export default function Header() {
         </Link>
       </div>
 
-      <nav className="hidden md:flex items-center text-sm tracking-wide gap-8 text-zinc-500">
+      <nav className="hidden md:flex items-center text-base tracking-wide gap-8 text-zinc-500">
         {navItems.map((item) => (
           <Link
             key={item.href}
@@ -106,7 +106,7 @@ export default function Header() {
         </div>
         <div className="flex-1 flex flex-col justify-start pt-24">
           <nav
-            className={`flex flex-col items-center gap-10 text-xl font-light text-zinc-500 tracking-wider transition-transform duration-700 ease-in-out md:hidden ${
+            className={`flex flex-col items-center gap-10 text-xl font-light text-zinc-500 text-base tracking-wide transition-transform duration-700 ease-in-out md:hidden ${
               isOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >
