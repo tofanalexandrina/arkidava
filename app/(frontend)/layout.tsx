@@ -3,8 +3,10 @@ import './styles.css'
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 export const metadata = {
-  description: "A blank template using Payload in a Next.js app.",
-  title: "Payload Blank Template",
+  title: "Arkidava Mobili",
+  icons: {
+    icon: "/icon.png"
+  }
 };
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
