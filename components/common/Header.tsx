@@ -22,7 +22,7 @@ export default function Header() {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full font-light h-16 flex items-center justify-between px-6 md:px-12 z-50 bg-white transition-all">
+    <header className="fixed top-0 left-0 w-full h-16 flex items-center justify-between px-6 md:px-12 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-200/50 transition-all">
       <div>
         <Link href="/">
           <Image
@@ -83,7 +83,7 @@ export default function Header() {
       </button>
 
       <div
-        className={`fixed inset-0 bg-white z-50 flex flex-col transition-transform duration-700 ease-in-out md:hidden ${
+        className={`fixed top-0 left-0 w-screen h-[100dvh] bg-white z-50 flex flex-col transition-transform duration-500 ease-in-out md:hidden ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -106,7 +106,7 @@ export default function Header() {
         </div>
         <div className="flex-1 flex flex-col justify-start pt-24">
           <nav
-            className={`flex flex-col items-center gap-10 text-xl font-light text-zinc-500 text-base tracking-wide transition-transform duration-700 ease-in-out md:hidden ${
+            className={`flex flex-col items-center gap-10 text-base tracking-wide text-zinc-500 transition-transform duration-700 ease-in-out md:hidden ${
               isOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >
