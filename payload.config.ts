@@ -6,7 +6,8 @@ import { fileURLToPath } from "url";
 import sharp from "sharp";
 
 import { Users } from "./collections/Users.ts";
-import { Media } from "./collections/Media.ts";
+import { Images } from "./collections/Images.ts";
+import { Videos } from "./collections/Videos.ts";
 import { Projects } from "./collections/Projects.ts";
 import { Categories } from "./collections/Categories.ts";
 const filename = fileURLToPath(import.meta.url);
@@ -19,7 +20,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Projects, Categories],
+  collections: [Users, Images, Videos, Projects, Categories],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
