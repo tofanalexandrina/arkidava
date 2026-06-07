@@ -19,13 +19,35 @@ export const Categories: CollectionConfig = {
       required: true,
     },
     {
+      name: "type",
+      type: "radio",
+      required: true,
+      options: [
+        { label: "Rezidential", value: "rezidential" },
+        { label: "Industrial", value: "industrial" },
+      ],
+      defaultValue: "rezidential",
+      admin: {
+        layout: "horizontal",
+      },
+    },
+    {
       name: "description",
       type: "text",
     },
     {
-      name: "thumbnail",
+      name: "featuredImage",
       type: "upload",
-      relationTo: "media",
+      relationTo: "images",
+    },
+    {
+      name: "gallery",
+      type: "relationship",
+      relationTo: ["images", "videos"],
+      hasMany: true,
+      admin: {
+        description: "Select multiple images or videos for the category gallery.",
+      },
     },
   ],
 };

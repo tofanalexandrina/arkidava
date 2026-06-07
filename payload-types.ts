@@ -68,7 +68,8 @@ export interface Config {
   blocks: {};
   collections: {
     users: User;
-    media: Media;
+    images: Image;
+    videos: Video;
     projects: Project;
     categories: Category;
     'payload-kv': PayloadKv;
@@ -79,7 +80,8 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
+    images: ImagesSelect<false> | ImagesSelect<true>;
+    videos: VideosSelect<false> | VideosSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -148,11 +150,62 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
+ * via the `definition` "images".
  */
-export interface Media {
+export interface Image {
   id: number;
   alt: string;
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    card?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    hero?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "videos".
+ */
+export interface Video {
+  id: number;
+  alt: string;
+  /**
+   * Image displayed before the video plays
+   */
+  posterImage?: (number | null) | Image;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -173,6 +226,22 @@ export interface Project {
   id: number;
   name: string;
   slug: string;
+  featuredImage?: (number | null) | Image;
+  /**
+   * Select multiple images or videos for the project gallery.
+   */
+  gallery?:
+    | (
+        | {
+            relationTo: 'images';
+            value: number | Image;
+          }
+        | {
+            relationTo: 'videos';
+            value: number | Video;
+          }
+      )[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -184,8 +253,24 @@ export interface Category {
   id: number;
   name: string;
   slug: string;
+  type: 'rezidential' | 'industrial';
   description?: string | null;
-  thumbnail?: (number | null) | Media;
+  featuredImage?: (number | null) | Image;
+  /**
+   * Select multiple images or videos for the category gallery.
+   */
+  gallery?:
+    | (
+        | {
+            relationTo: 'images';
+            value: number | Image;
+          }
+        | {
+            relationTo: 'videos';
+            value: number | Video;
+          }
+      )[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -218,8 +303,12 @@ export interface PayloadLockedDocument {
         value: number | User;
       } | null)
     | ({
-        relationTo: 'media';
-        value: number | Media;
+        relationTo: 'images';
+        value: number | Image;
+      } | null)
+    | ({
+        relationTo: 'videos';
+        value: number | Video;
       } | null)
     | ({
         relationTo: 'projects';
@@ -295,10 +384,65 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media_select".
+ * via the `definition` "images_select".
  */
-export interface MediaSelect<T extends boolean = true> {
+export interface ImagesSelect<T extends boolean = true> {
   alt?: T;
+  prefix?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        card?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        hero?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "videos_select".
+ */
+export interface VideosSelect<T extends boolean = true> {
+  alt?: T;
+  posterImage?: T;
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -318,6 +462,8 @@ export interface MediaSelect<T extends boolean = true> {
 export interface ProjectsSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  featuredImage?: T;
+  gallery?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -328,8 +474,10 @@ export interface ProjectsSelect<T extends boolean = true> {
 export interface CategoriesSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  type?: T;
   description?: T;
-  thumbnail?: T;
+  featuredImage?: T;
+  gallery?: T;
   updatedAt?: T;
   createdAt?: T;
 }

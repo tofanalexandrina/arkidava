@@ -14,5 +14,20 @@ export const Projects: CollectionConfig = {
       required: true,
       unique: true,
     },
+    {
+      name: "featuredImage",
+      type: "upload",
+      relationTo: "images",
+      required: false,
+    },
+    {
+      name: "gallery",
+      type: "relationship",
+      relationTo: ["images", "videos"],
+      hasMany: true,
+      admin: {
+        description: "Select multiple images or videos for the project gallery.",
+      },
+    },
   ],
 };
