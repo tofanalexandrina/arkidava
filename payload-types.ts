@@ -155,6 +155,7 @@ export interface User {
 export interface Image {
   id: number;
   alt: string;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -204,6 +205,7 @@ export interface Video {
    * Image displayed before the video plays
    */
   posterImage?: (number | null) | Image;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -386,6 +388,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface ImagesSelect<T extends boolean = true> {
   alt?: T;
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -439,6 +442,7 @@ export interface ImagesSelect<T extends boolean = true> {
 export interface VideosSelect<T extends boolean = true> {
   alt?: T;
   posterImage?: T;
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
