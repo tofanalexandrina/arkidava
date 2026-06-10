@@ -185,6 +185,17 @@ svg {
   }
 }
 
+@keyframes slideLeftIn {
+  from {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .animate-slide-down-in {
   animation: slideDownIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
@@ -192,3 +203,12 @@ svg {
 .animate-slide-right-in {
   animation: slideRightIn 1.9s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
 }
+
+.animate-slide-right-in-scroll {
+  animation: slideRightIn 1.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-slide-left-in-scroll {
+  animation: slideLeftIn 1.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
