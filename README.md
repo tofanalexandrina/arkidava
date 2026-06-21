@@ -58,6 +58,11 @@ TODO:
 
 - TOFIX: bug, when going back to Homepage with history navigation, portfolio section doesn't load
 
+- Categories page
+  - title
+  - list of cards
+  - selector (industrial or residential)
+
 - Category page
   - title
   - media gallery
