@@ -23,7 +23,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full h-16 flex items-center justify-between px-6 md:px-12 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-200/50 transition-all">
-      <div>
+      <div className="animate-slide-down-in">
         <Link href="/">
           <Image
             src="/icon.png"
@@ -35,7 +35,7 @@ export default function Header() {
         </Link>
       </div>
 
-      <nav className="hidden md:flex items-center text-base tracking-wide gap-8 text-zinc-500">
+      <nav className="hidden md:flex items-center text-base tracking-wide gap-8 text-zinc-500 animate-slide-down-in">
         {navItems.map((item) => (
           <Link
             key={item.href}
@@ -48,7 +48,7 @@ export default function Header() {
       </nav>
 
       <button
-        className="md:hidden z-[60] flex items-center p-2 text-zinc-500"
+        className="md:hidden z-[60] flex items-center p-2 text-zinc-500 animate-slide-down-in"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? (
