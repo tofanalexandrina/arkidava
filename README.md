@@ -50,3 +50,17 @@ http://localhost:3000/admin
 
 TODO:
 -"back to top" button
+
+- Projects section
+- Servicii section
+- Despre noi section
+- Contact section
+
+- TOFIX: bug, when going back to Homepage with history navigation, portfolio section doesn't load
+
+- Category page
+  - title
+  - media gallery
+  - link to other category
+
+- Project page
