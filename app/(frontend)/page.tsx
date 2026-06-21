@@ -1,5 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import Portfolio from "@/components/sections/Portfolio";
+import BackToTopButton from "@/components/UI/BackToTopButton";
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <section className="min-h-screen px-4 md:px-12 py-20">
         {/* Future page content goes here */}
       </section>
+      <BackToTopButton/>
     </main>
   );
 }
