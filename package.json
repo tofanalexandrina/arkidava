@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "seed": "tsx scripts/seed.ts",
-    "dev": "npm run seed && next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -20,7 +20,8 @@
     "next": "16.2.6",
     "payload": "^3.85.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-intersection-observer": "^10.0.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
