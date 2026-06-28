@@ -21,7 +21,7 @@ export default function Hero() {
           ARKIDAVA MOBILI
         </h1>
         <p className="text-lg md:text-xl text-white/80 font-light">
-          Soluții personalizate pentru interioare moderne și rafinate.
+          Confortul tău, prioritatea noastră!
         </p>
       </div>
     </section>
