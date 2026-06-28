@@ -26,38 +26,30 @@ export default function Footer() {
 
           <div className="flex flex-col items-start gap-3 text-sm tracking-wide text-zinc-500 font-light">
             <span className="text-zinc-900 tracking-wider text-xs font-medium uppercase mb-1">
-              Servicii
-            </span>
-            <Link
-              href="#"
-              className="hover:text-zinc-900 transition-colors duration-300"
-            >
-              Industrial
-            </Link>
-            <Link
-              href="#"
-              className="hover:text-zinc-900 transition-colors duration-300"
-            >
-              Rezidențial
-            </Link>
-          </div>
-
-          <div className="flex flex-col items-start gap-3 text-sm tracking-wide text-zinc-500 font-light">
-            <span className="text-zinc-900 tracking-wider text-xs font-medium uppercase mb-1">
               Social
             </span>
             <div className="flex flex-col items-start gap-3">
               <a
                 href="https://www.instagram.com/arkidavamobili/"
+                target="_blank"
                 className="hover:text-zinc-900 transition-colors duration-300"
               >
                 Instagram
               </a>
               <a
                 href="https://www.facebook.com/profile.php?id=100089439472849"
+                target="_blank"
                 className="hover:text-zinc-900 transition-colors duration-300"
               >
                 Facebook
+              </a>
+              <a
+                href="https://wa.me/40740126930"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-zinc-900 transition-colors duration-300"
+              >
+                WhatsApp
               </a>
             </div>
           </div>

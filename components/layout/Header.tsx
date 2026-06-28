@@ -6,7 +6,8 @@ import { useState, useEffect } from "react";
 const navItems = [
   { label: "PORTOFOLIU", href: "/portfolio" },
   { label: "PROIECTE", href: "/projects" },
-  { label: "DESPRE NOI", href: "/about" },
+  { label: "SERVICII", href: "/#services" },
+  { label: "DESPRE NOI", href: "/#about" },
 ];
 
 export default function Header() {
