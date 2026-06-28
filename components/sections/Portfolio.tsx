@@ -5,16 +5,44 @@ import Image from "next/image";
 import Link from "next/link";
 
 const projectsRezidential = [
-  { title: "Bucătărie", url: "#", image: "/test.jpg" },
-  { title: "Baie", url: "#", image: "/test-2.jpg" },
-  { title: "Dressing", url: "#", image: "/test.jpg" },
-  { title: "Living", url: "#", image: "/test-2.jpg" },
+  {
+    title: "Bucătărie",
+    url: "/portfolio/residential/kitchen",
+    image: "/test.jpg",
+  },
+  {
+    title: "Baie",
+    url: "/portfolio/residential/bathroom",
+    image: "/test-2.jpg",
+  },
+  {
+    title: "Dressing",
+    url: "/portfolio/residential/dressing",
+    image: "/test.jpg",
+  },
+  {
+    title: "Living",
+    url: "/portfolio/residential/living",
+    image: "/test-2.jpg",
+  },
 ];
 
 const projectsIndustrial = [
-  { title: "Birouri", url: "#", image: "/test-2.jpg" },
-  { title: "Bucătărie", url: "#", image: "/test.jpg" },
-  { title: "Baie", url: "#", image: "/test-2.jpg" },
+  {
+    title: "Birouri",
+    url: "/portfolio/industrial/offices",
+    image: "/test-2.jpg",
+  },
+  {
+    title: "Bucătărie",
+    url: "/portfolio/industrial/kitchen",
+    image: "/test.jpg",
+  },
+  {
+    title: "Baie",
+    url: "/portfolio/industrial/bathroom",
+    image: "/test-2.jpg",
+  },
 ];
 
 export default function Portfolio() {
@@ -46,7 +74,7 @@ export default function Portfolio() {
         <div ref={resRef} className="space-y-10">
           <div className="text-left border-b border-zinc-200 pb-4">
             <Link
-              href="#"
+              href={"/portfolio/residential"}
               className="text-3xl md:text-4xl font-light tracking-wider uppercase text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
             >
               Rezidențial
@@ -77,7 +105,7 @@ export default function Portfolio() {
         <div ref={indRef} className="space-y-10">
           <div className="text-right border-b border-zinc-200 pb-4">
             <Link
-              href="#"
+              href={"/portfolio/industrial"}
               className="text-3xl md:text-4xl font-light tracking-wider uppercase text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
             >
               Industrial
