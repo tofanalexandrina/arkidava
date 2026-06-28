@@ -26,7 +26,7 @@ export default function BackToTopButton() {
       aria-hidden={!visible}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className={
-        "fixed bottom-6 right-6 z-50 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm shadow-lg flex items-center justify-center transition-all duration-500 ease-in-out text-zinc-500 hover:text-zinc-900 " +
+        "fixed bottom-6 right-6 z-50 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/95 backdrop-blur-sm shadow-lg flex items-center justify-center transition-all duration-500 ease-in-out text-zinc-500 hover:text-zinc-900 " +
         (visible
           ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
           : "opacity-0 translate-y-4 scale-95 pointer-events-none") +
@@ -35,7 +35,7 @@ export default function BackToTopButton() {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-6 h-6 transition-colors duration-200"
+        className="w-4 h-4 transition-colors duration-200"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"

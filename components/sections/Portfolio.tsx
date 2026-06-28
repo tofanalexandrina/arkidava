@@ -3,7 +3,6 @@
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
 
 const projectsRezidential = [
   {
@@ -47,24 +46,22 @@ const projectsIndustrial = [
 ];
 
 export default function Portfolio() {
-  const { ref: resRef, inView: resVisible } = useInView({
-    threshold: 0.1,
+  const { ref: resRef, inView: resInView } = useInView({
     triggerOnce: true,
-    fallbackInView: true,
+    threshold: 0.1,
   });
 
-  const { ref: indRef, inView: indVisible } = useInView({
-    threshold: 0.1,
+  const { ref: indRef, inView: indInView } = useInView({
     triggerOnce: true,
-    fallbackInView: true,
+    threshold: 0.1,
   });
 
   return (
     <section className="bg-white text-zinc-900 w-full py-24 px-4 md:px-12 overflow-hidden">
       {/* Section Title */}
-      <div className="max-w-7xl mx-auto mb-24 text-center">
+      <div className="max-w-7xl mx-auto mb-16 text-center">
         <Link
-          href={"/portfolio"}
+          href="#"
           className="text-4xl md:text-5xl font-light tracking-widest uppercase text-zinc-600 hover:text-zinc-900 transition-colors duration-300"
         >
           Portofoliu
@@ -74,12 +71,7 @@ export default function Portfolio() {
 
       <div className="max-w-7xl mx-auto space-y-32">
         {/* REZIDENTIAL */}
-        <div
-          ref={resRef}
-          className={`space-y-10 transition-opacity duration-1000 ${
-            resVisible ? " animate-slide-right-in-scroll" : ""
-          }`}
-        >
+        <div ref={resRef} className="space-y-10">
           <div className="text-left border-b border-zinc-200 pb-4">
             <Link
               href={"/portfolio/residential"}
@@ -89,25 +81,28 @@ export default function Portfolio() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {projectsRezidential.map((p, idx) => (
-              <ProjectCard
-                key={idx}
-                title={p.title}
-                url={p.url}
-                image={p.image}
-              />
-            ))}
+          <div
+            className={`space-y-10 transition-opacity duration-1000 ${
+              resInView
+                ? "opacity-100 animate-slide-right-in-scroll"
+                : "opacity-0"
+            }`}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {projectsRezidential.map((p, idx) => (
+                <ProjectCard
+                  key={idx}
+                  title={p.title}
+                  url={p.url}
+                  image={p.image}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
         {/* INDUSTRIAL */}
-        <div
-          ref={indRef}
-          className={`space-y-10 transition-opacity duration-1000 ${
-            indVisible ? "animate-slide-left-in-scroll" : ""
-          }`}
-        >
+        <div ref={indRef} className="space-y-10">
           <div className="text-right border-b border-zinc-200 pb-4">
             <Link
               href={"/portfolio/industrial"}
@@ -117,15 +112,23 @@ export default function Portfolio() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projectsIndustrial.map((p, idx) => (
-              <ProjectCard
-                key={idx}
-                title={p.title}
-                url={p.url}
-                image={p.image}
-              />
-            ))}
+          <div
+            className={`space-y-10 transition-opacity duration-1000 ${
+              indInView
+                ? "opacity-100 animate-slide-left-in-scroll"
+                : "opacity-0"
+            }`}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projectsIndustrial.map((p, idx) => (
+                <ProjectCard
+                  key={idx}
+                  title={p.title}
+                  url={p.url}
+                  image={p.image}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
