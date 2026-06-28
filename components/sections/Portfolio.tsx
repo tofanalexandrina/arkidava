@@ -142,20 +142,7 @@ function ProjectCard({
   url: string;
   image: string;
 }) {
-function ProjectCard({
-  title,
-  url,
-  image,
-}: {
-  title: string;
-  url: string;
-  image: string;
-}) {
   return (
-    <Link
-      href={url}
-      className="group relative block w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden bg-zinc-100"
-    >
     <Link
       href={url}
       className="group relative block w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden bg-zinc-100"
