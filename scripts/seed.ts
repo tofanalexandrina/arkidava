@@ -3,8 +3,10 @@ import { getPayload } from "payload";
 const loadEnv = async () => {
   try {
     const nextEnv = await import("@next/env");
+    const nextEnvAny = nextEnv as any;
     const loadEnvConfig =
-      nextEnv.default?.loadEnvConfig ?? nextEnv["module.exports"]?.loadEnvConfig;
+      nextEnvAny.default?.loadEnvConfig ??
+      nextEnvAny["module.exports"]?.loadEnvConfig;
 
     if (typeof loadEnvConfig === "function") {
       loadEnvConfig(process.cwd(), true);
@@ -67,18 +69,60 @@ const seed = async () => {
       }
     }
 
-    const categoriesToCreate = [
+    const categoriesToCreate: Array<{
+      name: string;
+      slug: string;
+      type: "rezidential" | "industrial";
+    }> = [
       {
         name: "Bucatarie",
         slug: "kitchen",
+        type: "rezidential",
       },
       {
         name: "Dormitor",
         slug: "bedroom",
+        type: "rezidential",
       },
       {
         name: "Baie",
         slug: "bathroom",
+        type: "rezidential",
+      },
+      {
+        name: "Living",
+        slug: "living",
+        type: "rezidential",
+      },
+      {
+        name: "Dressing",
+        slug: "dressing",
+        type: "rezidential",
+      },
+      {
+        name: "Birouri",
+        slug: "offices",
+        type: "industrial",
+      },
+      {
+        name: "Spatii Comerciale",
+        slug: "commercial-spaces",
+        type: "industrial",
+      },
+      {
+        name: "Hoteluri",
+        slug: "hotels",
+        type: "industrial",
+      },
+      {
+        name: "Restaurante",
+        slug: "restaurants",
+        type: "industrial",
+      },
+      {
+        name: "Showroom",
+        slug: "showroom",
+        type: "industrial",
       },
     ];
 
