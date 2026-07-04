@@ -112,8 +112,13 @@ function ServiceRow({
       </div>
 
       {/* Image Area */}
+      {/* NOTE: use `md:flex-1` (not base `flex-1`). On mobile the row is
+          `flex-col`, so `flex-1` (flex-basis:0%) would set this box's VERTICAL
+          basis to 0. Its only child is an out-of-flow `fill` image, so the box
+          collapses to 0 height and the image disappears. Keeping the basis auto
+          on mobile lets `aspect-[4/3]` establish the height. */}
       <div
-        className={`group flex-1 w-full relative aspect-[4/3] bg-zinc-100 overflow-hidden reveal ${
+        className={`group w-full md:flex-1 relative aspect-[4/3] bg-zinc-100 overflow-hidden reveal ${
           alreadyVisible
             ? "reveal-shown"
             : inView
