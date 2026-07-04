@@ -20,21 +20,36 @@ Task ID format:
 
 ## Tasks
 
-### TK-01 - Category Detail (/portfolio/category/[slug])
+### TK-01 - Redo Portfolio Cards (Navigation, 3 Visible)
 
-- Status: TODO
+- Status: IN PROGRESS (MAX)
 - Priority: HIGH
 
 <details>
 <summary>Details</summary>
 
-- Create dynamic route with slug lookup in Payload.
-- Render category title + media gallery.
-- Add navigation to another category at page end.
+- Rebuild the card group into a carousel/slider that shows only 3 cards at a time.
+- Add previous/next navigation between cards.
+- Keep responsive behavior (fewer cards visible on smaller breakpoints).
+- Preserve existing card visuals, hover, and scroll-reveal animation.
 
 </details>
 
-### TK-02 - Projects Route (/projects)
+### TK-02 - Homepage Projects Section
+
+- Status: IN PROGRESS (MAX)
+- Priority: HIGH
+
+<details>
+<summary>Details</summary>
+
+- Add the missing Projects section to the homepage.
+- Reuse the redone card/carousel UI from TK-01.
+- Link each card to its project detail route.
+
+</details>
+
+### TK-03 - Projects Route (/projects)
 
 - Status: TODO
 - Priority: HIGH
@@ -48,7 +63,21 @@ Task ID format:
 
 </details>
 
-### TK-03 - Project Detail (/projects/[slug])
+### TK-04 - Category Detail (/portfolio/category/[slug])
+
+- Status: TODO
+- Priority: MEDIUM
+
+<details>
+<summary>Details</summary>
+
+- Create dynamic route with slug lookup in Payload.
+- Render category title + media gallery.
+- Add navigation to another category at page end.
+
+</details>
+
+### TK-05 - Project Detail (/projects/[slug])
 
 - Status: TODO
 - Priority: MEDIUM
@@ -62,7 +91,7 @@ Task ID format:
 
 </details>
 
-### TK-04 - Homepage Projects Feed
+### TK-06 - Connect Homepage Sections to CMS
 
 - Status: TODO
 - Priority: MEDIUM
@@ -70,18 +99,48 @@ Task ID format:
 <details>
 <summary>Details</summary>
 
-- Replace static portfolio arrays with Payload-backed data.
-- Prefer Server Component fetch from local Payload API.
+- Replace static/mock arrays in the Portfolio and Projects homepage sections with Payload-backed data.
+- Prefer Server Component fetch from the local Payload API.
 - Reuse gallery/card UI where possible.
+
+</details>
+
+## Bugs
+
+There are 2 bugs to solve:
+
+### BUG-01 - Services Section Images Don't Load on Mobile
+
+- Status: TODO
+- Priority: HIGH
+
+<details>
+<summary>Details</summary>
+
+- Images from the Services section don't load up on mobile devices.
+
+</details>
+
+### BUG-02 - Menu Button Broken After Returning From 404 Page
+
+- Status: TODO
+- Priority: HIGH
+
+<details>
+<summary>Details</summary>
+
+- Menu button doesn't work when you navigate back from a "404 Page Not Found" page.
 
 </details>
 
 ## Priority Queue
 
-1. TK-01 - implement /portfolio/category/[slug]
-2. TK-02 - implement /projects
-3. TK-03 - implement /projects/[slug]
-4. TK-04 - connect homepage projects to CMS
+1. TK-01 - redo portfolio cards (carousel, 3 visible, navigation)
+2. TK-02 - add homepage projects section
+3. TK-03 - implement /projects
+4. TK-04 - implement /portfolio/category/[slug]
+5. TK-05 - implement /projects/[slug]
+6. TK-06 - connect homepage portfolio & projects sections to CMS
 
 ## Done
 
