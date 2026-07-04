@@ -1,8 +1,8 @@
 "use client";
 
-import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import Link from "next/link";
+import { useScrollReveal } from "@/lib/hooks/useScrollReveal";
 
 const projectsRezidential = [
   {
@@ -46,15 +46,17 @@ const projectsIndustrial = [
 ];
 
 export default function Portfolio() {
-  const { ref: resRef, inView: resInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const {
+    ref: resRef,
+    inView: resInView,
+    alreadyVisible: resAlready,
+  } = useScrollReveal({ threshold: 0.1, rootMargin: "0px" });
 
-  const { ref: indRef, inView: indInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const {
+    ref: indRef,
+    inView: indInView,
+    alreadyVisible: indAlready,
+  } = useScrollReveal({ threshold: 0.1, rootMargin: "0px" });
 
   return (
     <section className="bg-white text-zinc-900 w-full py-24 px-4 md:px-12 overflow-hidden">
@@ -82,10 +84,12 @@ export default function Portfolio() {
           </div>
 
           <div
-            className={`space-y-10 transition-opacity duration-1000 ${
-              resInView
-                ? "opacity-100 animate-slide-right-in-scroll"
-                : "opacity-0"
+            className={`space-y-10 reveal ${
+              resAlready
+                ? "reveal-shown"
+                : resInView
+                  ? "animate-slide-right-in-scroll"
+                  : ""
             }`}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -113,10 +117,12 @@ export default function Portfolio() {
           </div>
 
           <div
-            className={`space-y-10 transition-opacity duration-1000 ${
-              indInView
-                ? "opacity-100 animate-slide-left-in-scroll"
-                : "opacity-0"
+            className={`space-y-10 reveal ${
+              indAlready
+                ? "reveal-shown"
+                : indInView
+                  ? "animate-slide-left-in-scroll"
+                  : ""
             }`}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

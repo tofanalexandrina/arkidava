@@ -196,6 +196,32 @@ svg {
   }
 }
 
+@keyframes softRevealUp {
+  from {
+    transform: translateY(32px);
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes softImageReveal {
+  from {
+    transform: translateY(28px) scale(0.985);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
 .animate-slide-down-in {
   animation: slideDownIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
@@ -212,3 +238,42 @@ svg {
   animation: slideLeftIn 1.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+.animate-soft-reveal-up {
+  animation: softRevealUp 1.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-soft-image-reveal {
+  animation: softImageReveal 1.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Progressive-enhancement scroll reveal.
+   Reveal elements are visible by default so they still show when client JS
+   never runs (e.g. a browser Back navigation from a 404 page, where the
+   restored document does not execute its scripts). The inline head script
+   adds `.reveal-ready` to <html> before paint once JS is active; only then
+   do not-yet-revealed elements start hidden so they can animate in. */
+.reveal-ready .reveal {
+  opacity: 0;
+}
+
+.reveal-ready .reveal.reveal-shown {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready .reveal {
+    opacity: 1 !important;
+  }
+
+  .animate-slide-down-in,
+  .animate-slide-right-in,
+  .animate-slide-right-in-scroll,
+  .animate-slide-left-in-scroll,
+  .animate-soft-reveal-up,
+  .animate-soft-image-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
