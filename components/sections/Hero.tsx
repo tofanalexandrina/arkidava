@@ -9,7 +9,8 @@ export default function Hero() {
         alt="Arkidava showcase"
         fill
         className="object-cover object-center transition-transform duration-[4000ms] ease-out group-hover:scale-105"
-        priority
+        sizes="100vw"
+        preload
       />
 
       {/* Dark overlay so text is readable */}
