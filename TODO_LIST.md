@@ -107,31 +107,7 @@ Task ID format:
 
 ## Bugs
 
-There are 2 bugs to solve:
-
-### BUG-01 - Services Section Images Don't Load on Mobile
-
-- Status: TODO
-- Priority: HIGH
-
-<details>
-<summary>Details</summary>
-
-- Images from the Services section don't load up on mobile devices.
-
-</details>
-
-### BUG-02 - Menu Button Broken After Returning From 404 Page
-
-- Status: TODO
-- Priority: HIGH
-
-<details>
-<summary>Details</summary>
-
-- Menu button doesn't work when you navigate back from a "404 Page Not Found" page.
-
-</details>
+No open bugs. Add new bugs here as they are found.
 
 ## Priority Queue
 
@@ -179,3 +155,13 @@ There are 2 bugs to solve:
 - Summary: Implemented dynamic category detail route with gallery/navigation structure.
 - Status: DONE
 - By: Alexandrina
+
+### BUG-01 - Services Section Images Don't Load on Mobile
+
+- Summary: Fixed collapsed image box on mobile (`flex-1` → `w-full md:flex-1`).
+- Status: DONE
+
+### BUG-02 - Menu Button Broken After Returning From 404 Page
+
+- Summary: Rebuilt mobile menu as a CSS-only checkbox toggle so it works without React hydration.
+- Status: DONE

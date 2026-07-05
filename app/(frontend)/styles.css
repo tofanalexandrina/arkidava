@@ -43,6 +43,13 @@ img {
   display: block;
 }
 
+/* Lock background scroll while the mobile menu is open. Driven purely by the
+   checkbox state via :has(), so it works even when React has not hydrated
+   (e.g. Back navigation from a hard 404). */
+body:has(#mobile-nav-toggle:checked) {
+  overflow: hidden;
+}
+
 h1 {
   margin: 40px 0;
   font-size: 64px;
