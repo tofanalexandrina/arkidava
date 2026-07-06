@@ -63,7 +63,7 @@ export default function Portfolio() {
       {/* Section Title */}
       <div className="max-w-7xl mx-auto mb-16 text-center">
         <Link
-          href="#"
+          href="/portfolio"
           className="text-4xl md:text-5xl font-light tracking-widest uppercase text-zinc-600 hover:text-zinc-900 transition-colors duration-300"
         >
           Portofoliu
